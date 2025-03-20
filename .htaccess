@@ -1,0 +1,13 @@
+# Enable the rewrite engine
+RewriteEngine On
+
+# Redirect to mainpage.php if accessing the directory
+RewriteCond %{REQUEST_URI} ^/?$
+RewriteRule ^$ //Dashboard.php [L,R=302]
+
+# Redirect requests for mainpage to mainpage.php
+RewriteRule ^Dashboard$ Dashboard.php [L]
+
+# Optional: To handle any .php file without extension
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^/]+)$ $1.php [L]
